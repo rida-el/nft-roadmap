@@ -1,0 +1,179 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Audiowide,sans-serif;
+}
+.number
+{
+	background: #f06;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    -webkit-filter: drop-shadow(0 4px 2px rgba(0,0,0,.2));
+    filter: drop-shadow(0 4px 2px rgba(0,0,0,.2));
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 65px;
+}
+html {
+  font-size: 16px;
+  font-family: sansserif;
+}
+html body {
+  background: #000000;
+  color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+html body header {
+  display: flex;
+  width: 100vw;
+}
+
+html body header.intro .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+html body header.intro .container h1{
+	background: linear-gradient(90deg,#121fcf 0,#f06);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 65px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-block-start: 0em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+html body section.timeline ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  padding: 50px 0;
+}
+html body section.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #f06;
+}
+html body section.timeline ul li:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  transition: background 0.5s ease-in-out;
+}
+html body section.timeline ul li:nth-child(odd) div {
+  left: 45px;
+  transform: translate3d(200px, 0, 0);
+}
+html body section.timeline ul li:nth-child(odd) div:before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #121fcf transparent transparent;
+}
+html body section.timeline ul li:nth-child(even) div {
+  left: -439px;
+  transform: translate3d(-200px, 0, 0);
+}
+html body section.timeline ul li:nth-child(even) div:before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #f06;
+}
+html body section.timeline ul li div {
+  width: 400px;
+  padding: 15px;
+  position: relative;
+  background: linear-gradient(90deg,#121fcf 0,#f06);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+html body section.timeline ul li div time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+html body section.timeline ul li div:before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+html body section.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+html body section.timeline ul li.in-view:after {
+  background: #f06;
+}
+
+span{ 
+	font-family: 'Poppins', Courier, monospace;
+    font-size: 13px;
+    line-height: 21px;
+    margin-top: 20px;
+    width: 100%;
+    width: calc(100% + 45px);
+}
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #f06 transparent transparent;
+  }
+}
